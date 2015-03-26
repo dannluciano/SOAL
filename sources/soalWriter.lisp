@@ -1,0 +1,22 @@
+(defun escreve-arquivos (midicents onsets durations velocities diretorio namefile)
+  (escreve-arquivos-aux midicents onsets durations velocities diretorio namefile 1)
+)
+
+(defun escreve-arquivos-aux (midicents onsets durations velocities diretorio namefile indice)
+  (if (= (length midicents) 1)
+      (escreve-arquivo (first midicents) (first onsets) (first durations) (first velocities) diretorio namefile indice)
+    (let ((indice (escreve-arquivo (first midicents) (first onsets) (first durations) (first velocities) diretorio namefile indice)))
+       (escreve-arquivos-aux (rest midicents) (rest onsets) (rest durations) (rest velocities) diretorio namefile (+ indice 1))))
+)
+
+(defun escreve-arquivo (midicents onsets durations velocities diretorio namefile indice)
+  (if (= (length midicents) 1)
+      (escreve-arquivo-midi (first midicents) (first onsets) (first durations) (first velocities) diretorio namefile indice)
+    (let ((indice (escreve-arquivo-midi (first midicents) (first onsets) (first durations) (first velocities) diretorio namefile indice)))
+      (escreve-arquivo (rest midicents) (rest onsets) (rest durations) (rest velocities) diretorio namefile (+ indice 1)))) 
+)
+
+(defun escreve-arquivo-midi (midicents onsets durations velocities diretorio namefile indice)
+  (let ((retorno (save-midifile (merge-pathnames diretorio (pathname (concatenate 'string namefile (write-to-string indice) ".mid")))  (make-instance 'chord :LMidic midicents :LVel velocities :LOffset onsets :Ldur durations) 2 1)))
+    indice)
+)
