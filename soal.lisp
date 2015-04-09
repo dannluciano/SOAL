@@ -107,7 +107,11 @@
                                 ("SOAL Segmentation" nil nil (SEGMENTATION-MIDI
                                                               SAVE-SOAL-SEGMENTATION
                                                               SOAL-MULTILISTS-FLAT) nil)
-                                ("D&T" nil nil (C) nil)))
+                                ("D&T" nil nil (c
+                                                index-t
+                                                index-i
+                                                index-c
+                                                ) nil)))
 
 
 

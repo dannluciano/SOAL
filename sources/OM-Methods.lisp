@@ -1414,16 +1414,43 @@ MIDI files, according to the segmentation result."
               (escreve-arquivos midicents onsets durations velocities diretorio namefile))
 )
 
-(defmethod! c ((n number))
-        :doc
-  "CNP"
-
-  :initvals (list 2)
-  :indoc '("n")
+(defmethod! c ((n number) (p number))
+  :doc "Combinatory Function"
+  :initvals (list 0 0)
+  :indoc '("Number n"
+           "Number p")
   :icon 131
   :numouts 1
 
   (if (< n 1)
       (values 0)
-  (truncate (/ (fatoreal n) (* (fatoreal 2) (fatoreal (- n 2))))))
+  (truncate (/ (fatoreal n) (* (fatoreal p) (fatoreal (- n p))))))
 )
+
+(defmethod! index-T ((n number))
+  :doc "Index T"
+  :initvals (list 0)
+  :indoc '("Number n")
+  :icon 131
+  :numouts 1
+
+  (truncate (/ (* n (- n 1)) 2)))
+
+(defmethod! index-i ((r number))
+  :doc "Index i"
+  :initvals (list 0)
+  :indoc '("Number n")
+  :icon 131
+  :numouts 1
+  (loop for i from 1 to r sum (index-T i))
+)
+
+(defmethod! index-c ((t-num number) (i-num number))
+  :doc "Index C"
+  :initvals (list 0 0)
+  :indoc '("Index T"
+           "Index i")
+  :icon 131
+  :numouts 1
+  (- t-num i-num)
+  )
