@@ -108,9 +108,9 @@
                                                               SAVE-SOAL-SEGMENTATION
                                                               SOAL-MULTILISTS-FLAT) nil)
                                 ("D&T" nil nil (c
-                                                index-t
-                                                index-i
-                                                index-c
+                                                index-T-Total-Relations
+                                                index-i-Relations-of-Identity
+                                                index-c-Relations-of-Contrast
                                                 ) nil)))
 
 

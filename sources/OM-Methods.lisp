@@ -20,7 +20,7 @@
 ;Time Filling Analysis
 ;----------------------------
 ;*****************************************************************************************
-;**********************  Versão recursiva ************************************************
+;**********************  VersÃ£o recursiva ************************************************
 ;*****************************************************************************************
 (defmethod! notes-per-onset ((notes list) (onsets list))
   :doc
@@ -31,8 +31,8 @@ Outputs:
 [2] the number of notes  per onset;
 [3] the lowest note per onset (smallest midicents value) (for each file);
 [4] the highest note per onset (greatest midicents value) (for each file);
-[5] the notesÕ average value (in mcs) per onset (for each file);
-[6] the notesÕ mode value (in mcs) per onset, i.e. the most frequent note on each onset. If not existing, the algorithm
+[5] the notesÃ• average value (in mcs) per onset (for each file);
+[6] the notesÃ• mode value (in mcs) per onset, i.e. the most frequent note on each onset. If not existing, the algorithm
 returns back the average note (as in the 5th ouput)."
 
   :initvals (list dnotes donsets)
@@ -66,8 +66,8 @@ Outputs
 [2] the number of velocities  per onset;
 [3] the lowest velocity value on each onset (for each file);
 [4] the highest velocity value on each onset (for each file);
-[5] the velocitiesÕ average value per onset (for each file);
-[6] the velocitiesÕ mode value per onset. If not existing, the algorithm returns back the average velocity (as in the 5th
+[5] the velocitiesÃ• average value per onset (for each file);
+[6] the velocitiesÃ• mode value per onset. If not existing, the algorithm returns back the average velocity (as in the 5th
 ouput)."
 
      :initvals (list dvelocities donsets)
@@ -231,7 +231,7 @@ Input: onsets, duration and an optional smaller-impulse given by the user.
 When default (0), this value is calculated by the 'smaller-impulse' function
 
 Output
-A list of the relative eventsÕ density of each file."
+A list of the relative eventsÃ• density of each file."
 
    :initvals (list donsets ddurations 0)
    :indoc '("list of onsets (ms)"
@@ -269,7 +269,7 @@ linearity.
 
 (defmethod! pitch-direction ((notes list) (onsets list))
    :doc
-"Gives the objectÕs directional profile, i.e. the global direction (descending and/or ascending) of the objectÕs sequence of events.
+"Gives the objectÃ•s directional profile, i.e. the global direction (descending and/or ascending) of the objectÃ•s sequence of events.
 The more unidirectional the global pitch profile (as a scale-object would be), the higher the weight. The output
 can be relative (first output), resulting in a negative value if the global direction is descending.
 The absolute value (second output) is an indicator of the strength of the directionality.
@@ -332,17 +332,17 @@ The rate."
 ;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ;*****************************************************************************************
-;**********************  Versão recursiva ************************************************
+;**********************  VersÃ£o recursiva ************************************************
 ;*****************************************************************************************
 (defmethod! spatial-analysis ((notes list) (range-list number) (registers-list list) (register-weight-list list) (remove-duplicates? number))
    :doc
-"Gives the input fileÕs RELATIVE RANGE and several register informations.
+"Gives the input fileÃ•s RELATIVE RANGE and several register informations.
 Range (soalambitus) means a pitch space defined by two boundary pitches.
-Relative range compares the input objectÕs pitch range to a predefined global pitch range, which can be for instance the whole
+Relative range compares the input objectÃ•s pitch range to a predefined global pitch range, which can be for instance the whole
 music pitch range, the instrument or ensemble global pitch range, or the human ear pitch range ('range' input) . Provides
 complementary REGISTER informations, particularly the REGISTER DISTRIBUTION, which  informs how pitches are distributed along
-the objectÕs pitch range. The user must declare in how many slices (registers) the global pitch range is to be partitionned ('registers' input)
-Ñ the default partition, by octaves, can be useful in many cases. Moreover, if he wants so, the user may define a quality weight
+the objectÃ•s pitch range. The user must declare in how many slices (registers) the global pitch range is to be partitionned ('registers' input)
+Ã‘ the default partition, by octaves, can be useful in many cases. Moreover, if he wants so, the user may define a quality weight
 to each of these registers ('register-weight' input). Thus the algorithm informs how many notes are in how many registers, and can give to the input
 object a sonic quality weight according to the way the pitches are distributed in the different registers.
 
@@ -352,7 +352,7 @@ Outputs (from left to right):
 [Output (from left to right)
 [1]  gives a list of lists of the following values in this order: relative  range, absolute range, register-filling, register
 distribution, average spatial quality;
-[2]  returns the fileÕs average spatial quality Ñ i.e. the average value of [3] (relative pitch range) and [10] (register
+[2]  returns the fileÃ•s average spatial quality Ã‘ i.e. the average value of [3] (relative pitch range) and [10] (register
 distribution).
 [3]  gives the relative range of the input file, compared to the predefined global pitch range; a value (1.0) means the
 input file occupies the whole global range;
@@ -397,19 +397,19 @@ because they can be used to draw the graphic envelope of register-filling;
 	  (decimo-par-spatial-analysis notes registers-list register-weight-list remove-duplicates?)))
 
 
-;funções estão em space2.
+;funÃ§Ãµes estÃ£o em space2.
 
 ;****************************************************************************************
 
 ;*****************************************************************************************
-;**********************  Versão recursiva ************************************************
+;**********************  VersÃ£o recursiva ************************************************
 ;*****************************************************************************************
 (defmethod! piano-spatial-analysis ((notes list) (remove-duplicates? number))
    :doc
-"Gives the input fileÕs RELATIVE RANGE and several register informations. This patch is a version of Spatial Analysis optimized for piano music.
-Relative range compares the input objectÕs pitch range to the piano global pitch range (88 semitons). Provides
+"Gives the input fileÃ•s RELATIVE RANGE and several register informations. This patch is a version of Spatial Analysis optimized for piano music.
+Relative range compares the input objectÃ•s pitch range to the piano global pitch range (88 semitons). Provides
 complementary REGISTER informations, particularly the REGISTER DISTRIBUTION, which  informs how pitches are distributed along
-the objectÕs pitch range. Seven piano registers have been defined according to some global timbral differences caused by
+the objectÃ•s pitch range. Seven piano registers have been defined according to some global timbral differences caused by
 physical or mechanical variations:
       -3: (2100 3400)
       -2: (3500 4300)
@@ -423,14 +423,14 @@ regions.
 The greater the number of registers an object occupies, and/or the more extreme the register, the greater the weight.
 
 Input
-Midicents: the ÒmidicentsÓ list of each MIDI file, inside the piano range (2100-10700).
+Midicents: the Ã’midicentsÃ“ list of each MIDI file, inside the piano range (2100-10700).
 Remove-duplicates: if YES (1) (the default, recommended), removes the duplicates values of the midicents list. If (0),
 they are not removed.
 
 Output lists
  [1] gives a list of the following values in this order: relative  range,  absolute range, register-filling, register
 distribution, average spatial quality;
-[2] returns the fileÕs average spatial quality Ñ i.e. the average value of [3] (relative pitch range) and [10] (register
+[2] returns the fileÃ•s average spatial quality Ã‘ i.e. the average value of [3] (relative pitch range) and [10] (register
 distribution).
 [3] gives the relative range of the input file, compared to the piano global pitch range; a value (1.0) means the input file
 occupies the whole piano range;
@@ -477,7 +477,7 @@ be used to draw the graphic enveloppe of register-filling;
 
 
 ;*****************************************************************************************
-;**********************  Versão recursiva ************************************************
+;**********************  VersÃ£o recursiva ************************************************
 ;*****************************************************************************************
 (defmethod! sonic-quality-analysis ((notes list) (velocities list) (ped list)
                                     (output-choice  number) (round number))
@@ -493,11 +493,11 @@ Outputs
  [1] returns a list containing a selection of main output results, in this order: Q sum (3d output), average k value (5th
 output), q gaps (6th output), velocities mode (7th output).
 [2] gives the list of the q value of each input note, in their onset order;
-[3] returns ÒQ sumÓ (the most significant information) Ñ the weighted sum of q values, including pedal multiplicator;
+[3] returns Ã’Q sumÃ“ (the most significant information) Ã‘ the weighted sum of q values, including pedal multiplicator;
 [4]  gives the list of the k value of each note;
 [5] returns the average k value for all notes;
-[6]  returns the q gaps Ñ i.e.the average value of intervalic gaps between adjacent q values;
-[7] returns the velocities mode Ñ i.e. most frequent value (or, if not applicable, the average value) of the input file(s)Õs
+[6]  returns the q gaps Ã‘ i.e.the average value of intervalic gaps between adjacent q values;
+[7] returns the velocities mode Ã‘ i.e. most frequent value (or, if not applicable, the average value) of the input file(s)Ã•s
 velocities; scale 0-127."
 
 
@@ -533,7 +533,7 @@ velocities; scale 0-127."
 (defmethod! harmonicity ((notes list) (range number) (use-virtual-fundamental? number) (user-fundamental number)
                            (threshold number) (round-harmonic-object? number) (transpose-pitches? number) (remove-duplicates? number))
    :doc
-"Evaluates the closeness of the input fileÕs achronic pitch distribution to a paradigmatic harmonic spectrum-like structure.
+"Evaluates the closeness of the input fileÃ•s achronic pitch distribution to a paradigmatic harmonic spectrum-like structure.
 This structure is deduced from a real or virtual fundamental, and constructed inside a user-given spectrum bandwidth.
 The fundamental may be the actual (i.e. real) lowest pitch of the file, or a downward transposition (i.e. virtual) of it, one or
 two octaves below. The user makes the option between real or virtual fundamental calculation through the 'use-virtual-fundamental?' input.
@@ -636,7 +636,7 @@ linearity (i.e. maximum complexity).
    (values (s-linearity-rec notes :use-remove-duplicates remove-duplicates?)
            (itv-paradigm-rec notes 100)))
 
-;funções estão em space2.
+;funÃ§Ãµes estÃ£o em space2.
 ;*******************************************************************************************
 
 ;*******************************************************************************************
@@ -672,7 +672,7 @@ Output
 ;*******************************************************************************************
 
 ;*******************************************************************************************
-;**********************  Versão recursiva **************************************************
+;**********************  VersÃ£o recursiva **************************************************
 ;******************************************************************************************
 (defmethod! smaller-impulse ((onsets list) (durs list))
   :doc
@@ -692,7 +692,7 @@ The smaller impulse of each list, in ms."
 ;******************************************************************************************
 
 ;*******************************************************************************************
-;**********************  Versão recursiva **************************************************
+;**********************  VersÃ£o recursiva **************************************************
 ;*******************************************************************************************
 (defmethod! file-duration ((onsets list) (durations list))
    :doc
@@ -734,7 +734,7 @@ entry))."
 ;******************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! absolute-deviations ((list list) (use-reference number) (reference number) (value number))
   :doc
@@ -745,7 +745,7 @@ standard deviation as used in common statistics;
 1 -> the first element of the list;
 2 -> the smallest element of the list;
 3 -> the greatest element of the list;
-4 -> the mode ,i.e., the most frequent element of the list Ñ if not
+4 -> the mode ,i.e., the most frequent element of the list Ã‘ if not
 existing, the algorithm goes back to the average value.
 The 6th option is offered trhough the 4th input: a fixed number to be
 entered by the user.
@@ -765,7 +765,7 @@ or 4th input. "
 ;*****************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 
 (defmethod! relative-deviations ((list list) (use-reference number) (reference number) (value number) (min number) (max number))
@@ -775,10 +775,10 @@ or 4th input. "
 2 -> the first element of the list;
 3 -> the smallest element of the list;
 4 -> the greatest element of the list;
-5 -> the mode ,i.e., the most frequent element of the list Ñ if not existing, the algorithm goes back to the average value.
+5 -> the mode ,i.e., the most frequent element of the list Ã‘ if not existing, the algorithm goes back to the average value.
 The 6th option is a number to be entered by the user in the 4th input.
 The minimal (5th input) and maximal (6th input) values must inform the algorithm the boundaries of the music or instrument.
-The default values Ñ (2100) and (10800), respectively Ñ are preset for piano music.
+The default values Ã‘ (2100) and (10800), respectively Ã‘ are preset for piano music.
 
 Inputs (for both tools)
 list: list of lists of values;
@@ -808,7 +808,7 @@ The absolute or relative deviation of each input list."
 ;*****************************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! deviation-between-two-lists ((list1 list) (list2 list))
   :doc
@@ -835,7 +835,7 @@ The absolute or relative deviation of each input list."
 ;******************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! range-filling-rate ((notes list) (range number))
    :doc
@@ -860,7 +860,7 @@ range filling rate"
 ;*****************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 ;bands-eval-4 ou how-many-notes/band ou bands-filling??
 
@@ -881,7 +881,7 @@ Output: A list with the number of elements in each of the given ranges."
 
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 ;bands-eval-3 ou which-bands-are-occupied ou active-bands??
 (defmethod! active-ranges ((elements list) (ranges list))
@@ -900,7 +900,7 @@ Output: a list with the index of the ranges which contain any data, beginning in
 ;*****************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! density-rate ((list list) (step number) (remove-dups number))
   :doc
@@ -943,7 +943,7 @@ Output
 
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! rate ((value list) max (base number) (decimals number))
   :doc
@@ -961,7 +961,7 @@ Output
 ;*****************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! linear-distribution-rate ((elements list) (step number) (remove-duplicates? number))
   :doc
@@ -988,7 +988,7 @@ Output lists
 ;******************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! list-stats ((list list))
   :doc
@@ -998,7 +998,7 @@ Outputs (from left to right):
 [1] the minimal value of list;
 [2] the maximal value of list;
 [3] the average of list;
-[4] the mode of list, i.e., the most frequent element of the list Ñ if not existing, the algorithm goes back to the average value."
+[4] the mode of list, i.e., the most frequent element of the list Ã‘ if not existing, the algorithm goes back to the average value."
 
   :initvals (list dnotes)
   :indoc '("list of values")
@@ -1010,7 +1010,7 @@ Outputs (from left to right):
 ;*********************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! relative-list-stats ((list list) (divisor number))
   :doc
@@ -1021,7 +1021,7 @@ Outputs (from left to right):
 [1] the minimal value of list;
 [2] the maximal value of list;
 [3] the average of list;
-[4] the mode of list, i.e., the most frequent element of the list Ñ if not existing, the algorithm goes back to the average value;"
+[4] the mode of list, i.e., the most frequent element of the list Ã‘ if not existing, the algorithm goes back to the average value;"
 
   :initvals (list dvelocities 127)
   :indoc '("list of values"
@@ -1036,7 +1036,7 @@ Outputs (from left to right):
 ;*********************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! list-index ((list list))
   :doc
@@ -1051,7 +1051,7 @@ Outputs (from left to right):
 ;****************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! list-weight ((list list))
   :doc
@@ -1066,7 +1066,7 @@ Outputs (from left to right):
 ;*****************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! how-many-elements? ((list list) (elements list) (output-format number))
   :doc
@@ -1083,7 +1083,7 @@ Outputs (from left to right):
 
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! keep-duplicates ((lista list))
   :doc
@@ -1098,7 +1098,7 @@ Outputs (from left to right):
 
 ;*****************************************************************************************
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! find-elements ((elements list) (list-of-lists list))
   :doc
@@ -1114,7 +1114,7 @@ Outputs (from left to right):
 ;*****************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! mc->n-SOAL ((midicents list) (reference string))
   :doc
@@ -1136,7 +1136,7 @@ cent value (i.e., midicent 5376 would be expressed as F#2-24)."
 ;*****************************************************************************************
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 (defmethod! mc->pc-SOAL ((midicents list))
   :doc
@@ -1151,7 +1151,7 @@ cent value (i.e., midicent 5376 would be expressed as F#2-24)."
 
 
 ;*****************************************************************************************
-;********************  Versão Recursiva **************************************************
+;********************  VersÃ£o Recursiva **************************************************
 ;*****************************************************************************************
 
 (defmethod! pitch-deviations ((midicents list) (onsets list) (use-reference number) (reference number)
@@ -1163,7 +1163,7 @@ Through the last input, the user chooses what note of each onset will be used fo
 [1] the lowest note on each onset (midicent);
 [2] the highest note on each onset (midicent);
 [3] the average pitch on each onset (midicent);
-[4] the pitches' mode on each onset (midicent), i.e., the most frequent pitch on each onset Ñ if not existing, the algorithm returns the average pitch, as in the [2] option.
+[4] the pitches' mode on each onset (midicent), i.e., the most frequent pitch on each onset Ã‘ if not existing, the algorithm returns the average pitch, as in the [2] option.
 
 Output:
 
@@ -1221,8 +1221,8 @@ A list of lists of the relative pitch-deviation of each MIDI file input."
 (defmethod! cognitive-sonance ((midicents list) (intervals list))
 
   :doc
-"Sonance, a vector from cognitive  Òmaximum consonanceÓ to Òmaximum
-dissonanceÓ, evaluates the contiguous dyads of the input file(s) on the
+"Sonance, a vector from cognitive  Ã’maximum consonanceÃ“ to Ã’maximum
+dissonanceÃ“, evaluates the contiguous dyads of the input file(s) on the
 basis of a weighting of  their relative dissonance. See documentation for
 the implemented cognitive model and other details.
 Outputs:
@@ -1260,7 +1260,7 @@ input file."
 
 (defmethod! soal-multilists-flat ((information list))
          :doc
-"From embedded lists formatted (((onset)(data)...)))), extracts the 'data' and flats it. Intended to adapt the ouput of 'notes-per-onset' and 'velocity-per-onset’ functions, before connecting them to the ‘segmentation-midi’ function. When outputs 1 and 2 merge all the MIDI files data, outputs 3 and 4 preserve the ‘multi-list’ standard SOAL format ((...)). "
+"From embedded lists formatted (((onset)(data)...)))), extracts the 'data' and flats it. Intended to adapt the ouput of 'notes-per-onset' and 'velocity-per-onsetÂ’ functions, before connecting them to the Â‘segmentation-midiÂ’ function. When outputs 1 and 2 merge all the MIDI files data, outputs 3 and 4 preserve the Â‘multi-listÂ’ standard SOAL format ((...)). "
   :initvals (list '(((100 (795)) (62 (1570)) (69 (0)) (59 (0)) (65 (1620))) ((69 (0)) (82 (0)) (59 (75)) (35 (1500)))))
   :indoc '("data")
   :icon 131
@@ -1427,8 +1427,12 @@ MIDI files, according to the segmentation result."
   (truncate (/ (fatoreal n) (* (fatoreal p) (fatoreal (- n p))))))
 )
 
-(defmethod! index-T ((n number))
-  :doc "Index T (Totalizacao das relacoes de uma densidade-numero)"
+(defmethod! index-T-Total-Relations ((n number))
+  :doc
+  "Index T (Totalizacao das relacoes de uma densidade-numero).
+Input : Densidade-numero
+Output : Total de Relacoes
+"
   :initvals (list 0)
   :indoc '("Number n (densidade-numero)")
   :icon 131
@@ -1437,17 +1441,25 @@ MIDI files, according to the segmentation result."
   (truncate (/ (* n (- n 1)) 2))
 )
 
-(defmethod! index-i ((r number))
-  :doc "Index i (Relacoes de identidade)"
+(defmethod! index-i-Relations-of-Identity ((r number))
+  :doc "Index i (Relacoes de Identidade)
+Input : Numero de Componente Reais
+Output : Relacoes de Identidade
+"
+
   :initvals (list 0)
   :indoc '("Number r (numero de componentes reais)")
   :icon 131
   :numouts 1
-  (loop for i from 1 to r sum (index-T i))
+  (loop for i from 1 to r sum (index-T-Total-Relations i))
 )
 
-(defmethod! index-c ((t-num number) (i-num number))
-  :doc "Index C (Relacoes de Contraste)"
+(defmethod! index-c-Relations-of-Contrast ((t-num number) (i-num number))
+  :doc "Index C (Relacoes de Contraste)
+Input :
+[1] Indice T (Total das relacoes de uma densidade-numero)
+[2] Indice i (Relacoes de Identidade)
+"
   :initvals (list 0 0)
   :indoc '("Index T (totalizacao das relacoes de uma densidade-numero)"
            "Index i (Relacoes de identidade)")
