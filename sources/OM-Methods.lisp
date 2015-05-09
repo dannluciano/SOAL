@@ -1428,29 +1428,30 @@ MIDI files, according to the segmentation result."
 )
 
 (defmethod! index-T ((n number))
-  :doc "Index T"
+  :doc "Index T (Totalizacao das relacoes de uma densidade-numero)"
   :initvals (list 0)
-  :indoc '("Number n")
+  :indoc '("Number n (densidade-numero)")
   :icon 131
   :numouts 1
 
-  (truncate (/ (* n (- n 1)) 2)))
+  (truncate (/ (* n (- n 1)) 2))
+)
 
 (defmethod! index-i ((r number))
-  :doc "Index i"
+  :doc "Index i (Relacoes de identidade)"
   :initvals (list 0)
-  :indoc '("Number n")
+  :indoc '("Number r (numero de componentes reais)")
   :icon 131
   :numouts 1
   (loop for i from 1 to r sum (index-T i))
 )
 
 (defmethod! index-c ((t-num number) (i-num number))
-  :doc "Index C"
+  :doc "Index C (Relacoes de Contraste)"
   :initvals (list 0 0)
-  :indoc '("Index T"
-           "Index i")
+  :indoc '("Index T (totalizacao das relacoes de uma densidade-numero)"
+           "Index i (Relacoes de identidade)")
   :icon 131
   :numouts 1
   (- t-num i-num)
-  )
+)
