@@ -1415,7 +1415,12 @@ MIDI files, according to the segmentation result."
 )
 
 (defmethod! c ((n number) (p number))
-  :doc "Combinatory Function"
+  :doc
+  "Combinatory Function
+Input :
+[1] Number of elements
+[2] Number of p-combinations
+Output : Number of Combinations"
   :initvals (list 0 0)
   :indoc '("Number n"
            "Number p")
