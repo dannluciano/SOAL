@@ -1435,10 +1435,10 @@ MIDI files, according to the segmentation result."
 (defmethod! index-T-Total-Relations ((n number))
   :doc
   "Index T (Totalizacao das relacoes de uma densidade-numero).
-Observação: Para efetuar o cálculo no patch, é necessário conferir o artigo “Densidade e linearidade na configuração de texturas musicais” (GENTIL-NUNES, 2003). Ver “Cálculo do índice T” (pág. 02).
-Input: Insira o valor numérico referente a “n” que se refere ao número de relações de densidade/número. Por default o input é zero.
-Output: Total de Relações
-Importante: Para inserir a densidade número, alterar o valor de zero no topo do patch pelo valor a ser calculado."
+Observacao: Para efetuar o calculo no patch, e necessario conferir o artigo “Densidade e linearidade na configuração de texturas musicais” (GENTIL-NUNES, 2003). Ver “Calculo do indice T” (pag. 02).
+Input: Insira o valor numerico referente a “n” que se refere ao numero de relacoes de densidade/numero. Por default o input e zero.
+Output: Total de Relacoes
+Importante: Para inserir a densidade numero, alterar o valor de zero no topo do patch pelo valor a ser calculado."
   :initvals (list 0)
   :indoc '("Number n (densidade-numero)")
   :icon 131
@@ -1462,12 +1462,12 @@ Importante: Para inserir a densidade número, alterar o valor de zero no topo do
 
 (defmethod! index-c-Relations-of-Contrast ((t-num number) (i-num number))
   :doc "Index C (Relacoes de Contraste)
-Observação: Para efetuar os cálculos no patch, é necessário conferir o artigo “Densidade e linearidade na configuração de texturas musicais” (GENTIL-NUNES, 2003). Ver “Cálculo do índice C” (pág. 04).
+Observacao: Para efetuar os calculos no patch, e necessario conferir o artigo “Densidade e linearidade na configuracao de texturas musicais” (GENTIL-NUNES, 2003). Ver “Calculo do indice C” (pag. 04).
 
 Input 1: Ligar o output do patch “INDEX-T-TOTAL-RELATIONS”
-Input 2: Relações de identidade (i) (ver tabela da pág. 05). Inserir um “input” com o valor numérico referente ao somatório (i).
+Input 2: Relacoes de identidade (i) (ver tabela da pag. 05). Inserir um “input” com o valor numerico referente ao somatorio (i).
 
-Output: Relação de contraste (retorno referente ao segundo valor da tabela disponível na pág. 05, “pares i, c ”)."
+Output: Relacao de contraste (retorno referente ao segundo valor da tabela disponivel na pag. 05, “pares i, c ”)."
   :initvals (list 0 0)
   :indoc '("Index T (totalizacao das relacoes de uma densidade-numero)"
            "Index i (Relacoes de identidade)")
