@@ -107,7 +107,7 @@
                                 ("SOAL Segmentation" nil nil (SEGMENTATION-MIDI
                                                               SAVE-SOAL-SEGMENTATION
                                                               SOAL-MULTILISTS-FLAT) nil)
-                                ("D&T" nil nil (c
+                                ("Partional Analysis" nil nil (c
                                                 index-T-Total-Relations
                                                 index-i-Relations-of-Identity
                                                 index-c-Relations-of-Contrast

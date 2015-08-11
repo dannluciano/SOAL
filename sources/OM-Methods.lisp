@@ -1446,32 +1446,3 @@ Importante: Para inserir a densidade numero, alterar o valor de zero no topo do 
 
   (truncate (/ (* n (- n 1)) 2))
 )
-
-;; (defmethod! index-i-Relations-of-Identity ((r number))
-;;   :doc "Index i (Relacoes de Identidade)
-;; Input : Numero de Componente Reais
-;; Output : Relacoes de Identidade
-;; "
-
-;;   :initvals (list 0)
-;;   :indoc '("Number r (numero de componentes reais)")
-;;   :icon 131
-;;   :numouts 1
-;;   (loop for i from 1 to r sum (index-T-Total-Relations i))
-;; )
-
-(defmethod! index-c-Relations-of-Contrast ((t-num number) (i-num number))
-  :doc "Index C (Relacoes de Contraste)
-Observacao: Para efetuar os calculos no patch, e necessario conferir o artigo \"Densidade e linearidade na configuracao de texturas musicais\" (GENTIL-NUNES, 2003). Ver \"Calculo do indice C\" (pag. 04).
-
-Input 1: Ligar o output do patch \"INDEX-T-TOTAL-RELATIONS\"
-Input 2: Relacoes de identidade (i) (ver tabela da pag. 05). Inserir um \"input\" com o valor numerico referente ao somatorio (i).
-
-Output: Relacao de contraste (retorno referente ao segundo valor da tabela disponivel na pag. 05, \"pares i, c \")."
-  :initvals (list 0 0)
-  :indoc '("Index T (totalizacao das relacoes de uma densidade-numero)"
-           "Index i (Relacoes de identidade)")
-  :icon 131
-  :numouts 1
-  (- t-num i-num)
-)
